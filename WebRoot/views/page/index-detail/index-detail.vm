@@ -24,15 +24,29 @@
 	  	<!-- 正文 -->
 	  	<div class="article-wrap">
   		    <div class="article">
-  		        <div class="article-title">$articleTitle</div>
-                <div class="article-content">$articleContent</div>
+  		        <div class="article-title">$!{article.title}</div>
+  		        <div class="article-subtitle">
+  		        <div>
+  		        	<span class="tag">$!{article.tag}</span>
+  		        	<span class="date">$!{article.pubTime}</span>
+  		        </div>
+  		        </div>
+                <div class="article-content">$!{article.content}</div>
   		    </div>
 	  	</div>
 	  	
 	  	
 	  	<!-- 右侧sidebar -->
 		<div class="side-bar">
-            <div class="side-item"></div>
+            <div class="side-item side-item-tags">
+                <div class="title">频道</div>
+                <div class="content">
+                	<a>全部</a>
+                	#foreach($item in $tags)
+                	<a>$!{item.tag}</a>
+                	#end
+                </div>
+            </div>
             <div class="side-item"></div>
             <div class="side-item pinned">
                 <span>重要内容，hold住!</span>

@@ -5,19 +5,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
 request.setCharacterEncoding("UTF-8");
 
-String id = "";
-String title = "";
-String avatar = "";
-
-if ( request.getAttribute("id") != null ) {
-    id = (String) request.getAttribute("id");
-}
-if ( request.getAttribute("title") != null ) {
-    title = (String) request.getAttribute("title");
-}
-if ( request.getAttribute("avatar") != null ) {
-    avatar = (String) request.getAttribute("avatar");
-}
+String id = (String) request.getAttribute("id");
+String title = (String) request.getAttribute("title");
+String avatar = (String) request.getAttribute("avatar");
 %>
 <!DOCTYPE> 
 <html> 
@@ -53,10 +43,10 @@ if ( request.getAttribute("avatar") != null ) {
 <div class="container">
 	<h1><a href="jsp/allArticles.jsp">返回上级页面</a></h1>
 	<br /><br />
+	<h3><%=title%></h3>
 	
 	<form action="ArticleAvatarServlet?action=avatarSubmit" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="<%=id%>">
-		<input type="hidden" name="title" value="<%=title%>">
 		<input type="file" name="avatar" value="<%=avatar%>" id="input-file" />
 		<img src="<%=avatar%>" id="input-image">
 		<input type="submit" value="上传" id="input-submit" >

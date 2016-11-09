@@ -30,10 +30,19 @@
 
 .section .article-wrap .article .article-title {
   text-align: center;
-  padding: 50px 0;
   padding-top: 30px;
-  border-bottom: #bcc0c4 2px solid;
   font-size: 30px;
+}
+.section .article-wrap .article .article-subtitle {
+  overflow: hidden;
+}
+.section .article-wrap .article .article-subtitle > div {
+  float: right;
+}
+.section .article-wrap .article .article-subtitle .date {
+  margin-left: 14px;
+  font-size: 14px;
+  color: #969a9e;
 }
 
 .section .article-wrap .article .article-content {
@@ -42,6 +51,7 @@
   color: #404040;
   padding-top: 60px;
   line-height: 1.8em;
+  border-top: #bcc0c4 2px solid;
 }
 
 .section .article-wrap .article .article-content img {
@@ -49,10 +59,17 @@
   padding: 40px 0;
 }
 
+
+
+
+/*
+ * 右侧 side-bar
+ */
 .section .side-bar {
   width: 275px;
   float: right;
   overflow: visible;
+  padding-bottom: 50px;
 }
 
 .section .side-bar .side-item {
@@ -63,11 +80,43 @@
   border-radius: 4px;
   box-sizing: border-box;
   height: 200px;
+  overflow: hidden;
 }
-
 .section .side-bar .side-item.pinned {
   margin-top: 5px;
 }
+
+.section .side-bar .side-item-tags {
+  padding: 20px;
+  border-bottom: #F2F2F2 2px solid !important;
+}
+.section .side-bar .side-item-tags .title {
+  border-bottom: #F2F2F2 2px solid !important;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.section .side-bar .side-item-tags .content {
+  overflow: hidden;
+  padding: 10px;
+}
+.section .side-bar .side-item-tags .content > a {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  height: 24px;
+  
+  font-weight: 400;
+  color: #69707A;
+  cursor: pointer;
+
+}
+.section .side-bar .side-item-tags .content > a:hover {
+  color: #337ab7;
+  text-decoration: underline;
+}
+
+
 
 .section:after {
   content: ".";

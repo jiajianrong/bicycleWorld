@@ -2,30 +2,26 @@ package servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import com.service.Utils;
 
 import core.DBMgr;
 import core.DBMgr.TableObject;
 
 
 public class ArticleAvatarServlet extends HttpServlet {
+	
+	String DIR_PREFIX = "index_avatar";
 	
 	/**
 	 * The doGet method of the servlet. <br>
@@ -96,113 +92,27 @@ public class ArticleAvatarServlet extends HttpServlet {
 	 * @throws IOException
 	 */
 	private void avatarSubmit(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Map paramMap = uploadUtil(request);
+		Map paramMap = Utils.uploadUtil(request, DIR_PREFIX, null, null);
 		String id = (String)paramMap.get("id");
-		String title = (String)paramMap.get("title");
-		String avatar = paramMap.get("avatar")==null ? null : (String)paramMap.get("avatar") + "?" + (new Date()).getTime();
-		
+		String avatar = (String)paramMap.get("avatar") + "?" + (new Date()).getTime();
 		
         List names = new ArrayList();
         List types = new ArrayList();
         List contents = new ArrayList();
         
-        names.add( "title" );
-        if (avatar!=null) names.add( "avatar" );
-        
+        names.add( "avatar" );
         types.add( DBMgr.PSTMT_TYPE_STRING );
-        if (avatar!=null) types.add( DBMgr.PSTMT_TYPE_STRING );
+        contents.add( avatar );
         
-        contents.add( title );
-        if (avatar!=null) contents.add( avatar );
-        
-        
-        if (id != null && !"".equalsIgnoreCase(id.trim())) {
-        	names.add( "id" );
-        	types.add( DBMgr.PSTMT_TYPE_INT );
-        	contents.add( id );
-        	
-        	DBMgr.executeUpdate( "main_article", names, types, contents );
-        } else {
-        	DBMgr.executeInsert( "main_article", names, types, contents );
-        }
-        
+    	names.add( "id" );
+    	types.add( DBMgr.PSTMT_TYPE_INT );
+    	contents.add( id );
+    	
+    	DBMgr.executeUpdate( "main_article", names, types, contents );
         
         response.setContentType("text/html; charset=UTF-8");
         response.sendRedirect("ArticleAvatarServlet?action=updateAvatar&id=" + id);
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	private Map uploadUtil(HttpServletRequest request) {
-		
-		DiskFileItemFactory factory = new DiskFileItemFactory(); 
-		ServletFileUpload upload = new ServletFileUpload(factory); 
-		List items = null;
-		Map rtnMap = new HashMap(); 
-		String id = null;
-		
-		try {
-			items = upload.parseRequest(request);
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-		} 
-		
-		
-		for (Object object : items) {
-			FileItem fileItem = (FileItem) object;
-			if (fileItem.isFormField()) {
-				try {
-					rtnMap.put(fileItem.getFieldName(), fileItem.getString("utf-8"));
-					// 提取id
-					if ( "id".equalsIgnoreCase(fileItem.getFieldName()) ) {
-						id = fileItem.getString("utf-8");
-					}
-				} catch (UnsupportedEncodingException e1) {
-					e1.printStackTrace();
-				}
-				
-			}
-		}
-		
-		
-		for (Object object : items) {
-			FileItem fileItem = (FileItem) object;
-			if ( !fileItem.isFormField() ) {
-				ServletContext sctx = getServletContext();
-				String path = sctx.getRealPath("/index_avatar");
-				String fileName = fileItem.getName();
-				
-				if ( fileName == null || "".equalsIgnoreCase(fileName.trim()) ) {
-					return rtnMap;
-				}
-				//fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
-				String fileNameSuffix = fileName.substring(fileName.lastIndexOf("."));
-				
-				
-				String absAvatarPath = path + "/" + id + fileNameSuffix;
-				String relAvatarPath = "index_avatar/" + id + fileNameSuffix;
-				
-				rtnMap.put(fileItem.getFieldName(), relAvatarPath);
-
-				File file = new File(absAvatarPath);
-				//if (!file.exists()) {
-				try {
-					fileItem.write(file);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				//}
-			}
-		}
-		
-		return rtnMap;
-	}
-	
 	
 	
 	

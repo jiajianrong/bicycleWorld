@@ -1,18 +1,16 @@
 package com.velocityhandler;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Vector;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.context.Context;
+
+import com.service.SliderAvatar;
+import com.service.Tag;
 
 import core.DBMgr;
 import core.DBMgr.TableObject;
@@ -31,51 +29,52 @@ public class IndexController extends BaseController {
 		
 		setArticleList(request, response, ctx);
 		setSliderAvatars(request, response, ctx);
-
-		Template template = velo.getTemplate("page/index/index.vm");
-
-		return template;
+		setTags(request, response, ctx);
+		
+		return velo.getTemplate("page/index/index.vm");
 	}
 	
 	
-	
+	/**
+	 * 设置文章列表
+	 * @param request
+	 * @param response
+	 * @param ctx
+	 */
 	private void setArticleList(HttpServletRequest request, HttpServletResponse response, Context ctx) {
 		List list = DBMgr.executeQuery("select * from main_article order by id desc");
-		Vector articleVector = new Vector();
 
 		for (int i = 0; i < list.size(); i++) {
 			TableObject tb = (TableObject) list.get(i);
-
-			String pubTime = tb.get("pubTime");
-			String formatted = formatDate(pubTime);
-			tb.set("pubTime", formatted);
-
-			articleVector.addElement(tb);
+			tb.set("pubTime", formatDate(tb.get("pubTime")));
 		}
 
-		ctx.put("articles", articleVector);
+		ctx.put("articles", list);
+	}
+	
+	
+	/**
+	 * 设置轮播图
+	 * @param request
+	 * @param response
+	 * @param ctx
+	 */
+	private void setSliderAvatars(HttpServletRequest request, HttpServletResponse response, Context ctx) {
+		List names = SliderAvatar.getAll(false);
+		ctx.put("sliderAvatars", names);
 	}
 	
 	
 	
-	private void setSliderAvatars(HttpServletRequest request, HttpServletResponse response, Context ctx) {
-		String DIR_PREFIX = "index_slider_avatar";
-		
-		ServletContext sctx = getServletContext();
-		String absFilePath = sctx.getRealPath(DIR_PREFIX);
-		File dir = new File(absFilePath);
-		
-		File[] files = dir.listFiles();
-		List names = new ArrayList();
-		
-		for (int i=0;i<files.length;i++) {
-			String name = files[i].getName();
-			long lastModified = files[i].lastModified();
-			if (!name.endsWith("txt"))
-				names.add( DIR_PREFIX + "/" + name + "?" + lastModified );
-		}
-		
-		ctx.put("sliderAvatars", names);
+	/**
+	 * 设置右侧tags
+	 * @param request
+	 * @param response
+	 * @param ctx
+	 */
+	private void setTags(HttpServletRequest request, HttpServletResponse response, Context ctx) {
+		List tags = Tag.getAll();
+		ctx.put("tags", tags);
 	}
 	
 	
