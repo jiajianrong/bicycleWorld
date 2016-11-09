@@ -1,0 +1,10 @@
+.npmignore
+.project
+.DS_Store
+.classpath
+.settings
+WebRoot/META-INF
+WebRoot/WEB-INF/classes
+WebRoot/WEB-INF/lib
+
+

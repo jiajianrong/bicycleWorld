@@ -1,0 +1,91 @@
+.section-title {
+  padding: 20px 0;
+}
+
+.section .article-wrap {
+  width: 650px;
+  float: left;
+  overflow: visible;
+}
+
+.section .article-wrap .article-item {
+  display: block;
+  background: white;
+  box-shadow: 0px 1px 7px #BCBCBC;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 4px;
+  height: 400px;
+}
+
+.section .article-wrap .article-item .item-title {
+  height: 80px;
+  padding-left: 12px;
+}
+
+.section .article-wrap .article-item .item-title .main-title {
+  font-size: 26px;
+  line-height: 80px;
+  color: #5A5A5A;
+  font-weight: bold;
+}
+
+.section .article-wrap .article-item .item-title .sub-title {
+  float: right;
+  margin-right: 10px;
+  font-size: 14px;
+  margin-top: 36px;
+}
+
+.section .article-wrap .article-item .item-title .tag {
+	display: inline;
+    padding: .18em .36em;
+    font-size: 50%;
+    font-weight: 100;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #999;
+}
+
+
+
+.section .article-wrap .article-item .item-avatar {
+  height: 320px;
+  overflow: hidden;
+}
+
+.section .article-wrap .article-item .item-avatar img {
+  width: 100%;
+}
+
+.section .side-bar {
+  width: 275px;
+  float: right;
+  overflow: visible;
+  padding-bottom: 50px;
+}
+
+.section .side-bar .side-item {
+  background: white;
+  box-shadow: 0px 1px 7px #BCBCBC;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 200px;
+  overflow: hidden;
+}
+
+
+
+.section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

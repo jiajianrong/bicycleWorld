@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://java.sun.com/xml/ns/javaee"
+                   xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+                   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+                   id="WebApp_ID" version="3.0">
+
+
+<!-- velocity lib -->
+        <servlet>
+                <servlet-name>velocity</servlet-name>
+                <servlet-class>org.apache.velocity.tools.view.VelocityViewServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>velocity</servlet-name>
+                <url-pattern>*.vm</url-pattern>
+        </servlet-mapping>
+
+
+
+
+<!-- fckeditor lib -->
+		<servlet>
+		    <servlet-name>Connector</servlet-name>
+		    <servlet-class>net.fckeditor.connector.ConnectorServlet</servlet-class>
+		    <load-on-startup>1</load-on-startup>
+		</servlet>
+		<servlet-mapping>
+		    <servlet-name>Connector</servlet-name>
+		    <!-- Do not wrap this line otherwise Glassfish will fail to load this file -->
+		    <url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+		</servlet-mapping>
+	
+	
+	
+<!-- fckeditor logic controller -->	
+		<servlet>
+		    <servlet-name>FckServlet</servlet-name>
+		    <servlet-class>servlet.FckServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		    <servlet-name>FckServlet</servlet-name>
+		    <url-pattern>/FckServlet</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		    <servlet-name>ArticleAvatarServlet</servlet-name>
+		    <servlet-class>servlet.ArticleAvatarServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		    <servlet-name>ArticleAvatarServlet</servlet-name>
+		    <url-pattern>/ArticleAvatarServlet</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		    <servlet-name>SliderAvatarServlet</servlet-name>
+		    <servlet-class>servlet.SliderAvatarServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		    <servlet-name>SliderAvatarServlet</servlet-name>
+		    <url-pattern>/SliderAvatarServlet</url-pattern>
+		</servlet-mapping>
+
+
+
+<!-- fckeditor logic controller encoding filter -->	
+		<filter>
+	    	<filter-name>CharacterEncoding</filter-name>
+	    	<filter-class>core.EncodingFilter</filter-class>
+	  		<init-param> 
+	    		<param-name>encoding</param-name> 
+	   			<param-value>UTF-8</param-value>
+	   		</init-param> 
+	    </filter> 
+		<filter-mapping> 
+			<filter-name>CharacterEncoding</filter-name>
+			<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+			<url-pattern>/FckServlet/*</url-pattern>
+			<url-pattern>/SliderAvatarServlet/*</url-pattern>
+			<url-pattern>/ArticleAvatarServlet/*</url-pattern>
+	    </filter-mapping>
+
+
+
+
+<!-- logic controllers -->	
+
+
+        <servlet>
+                <servlet-name>hello</servlet-name>
+                <servlet-class>com.velocityhandler.HelloHandler</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>hello</servlet-name>
+                <url-pattern>/hello</url-pattern>
+        </servlet-mapping>
+        
+        
+        
+        
+        
+        <servlet>
+                <servlet-name>index</servlet-name>
+                <servlet-class>com.velocityhandler.IndexController</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>index</servlet-name>
+                <url-pattern>/index</url-pattern>
+        </servlet-mapping>
+        
+        
+        
+        
+        
+        <servlet>
+                <servlet-name>indexDetail</servlet-name>
+                <servlet-class>com.velocityhandler.IndexDetailController</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>indexDetail</servlet-name>
+                <url-pattern>/index-detail</url-pattern>
+        </servlet-mapping>
+
+</web-app>

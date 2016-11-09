@@ -1,0 +1,14 @@
+<div class="top-menu-wrap" id="top-menu-wrap">
+    
+    <div class="top-menu">
+        <ul class="nav">
+            <li><a href="index">Home</a></li>
+            <li><a href="javascript:;">Help</a></li>
+            <li><a href="javascript:;">About</a></li>
+        </ul>
+        <div class="logo"><img src="/hz/resources/static/img/icons/logo.png"/></div>
+    </div>
+    
+    
+</div>
+
