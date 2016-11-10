@@ -66,9 +66,8 @@
         	#end
         </div>
     </div>
-    <div class="side-item"></div>
     <div class="side-item pinned">
-        <span>重要内容，hold住!</span>
+        
     </div>
 </div>
 
