@@ -37,21 +37,7 @@
 	  	
 	  	
 	  	<!-- 右侧sidebar -->
-		<div class="side-bar">
-            <div class="side-item side-item-tags">
-                <div class="title">频道</div>
-                <div class="content">
-                	<a>全部</a>
-                	#foreach($item in $tags)
-                	<a>$!{item.tag}</a>
-                	#end
-                </div>
-            </div>
-            <div class="side-item"></div>
-            <div class="side-item pinned">
-                <span>重要内容，hold住!</span>
-            </div>
-        </div>
+		#parse('/widget/common/right-sidebar.vm')
     
 	</div>
 

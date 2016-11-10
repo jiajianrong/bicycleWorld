@@ -1,3 +1,99 @@
+<style>
+#topSliderJssor {
+  position: relative;
+  margin: 0 auto;
+  top: 0px;
+  left: 0px;
+  width: 960px;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+#topSliderJssor .jssor-slider {
+  cursor: move;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 960px;
+  height: 300px;
+  overflow: hidden;
+}
+
+#topSliderJssor .jssorb01 {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+#topSliderJssor .jssorb01 div, #topSliderJssor .jssorb01 div:hover, #topSliderJssor .jssorb01 .av {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  filter: alpha(opacity=70);
+  opacity: .7;
+  overflow: hidden;
+  cursor: pointer;
+  border: #000 1px solid;
+}
+
+#topSliderJssor .jssorb01 div {
+  background-color: gray;
+}
+
+#topSliderJssor .jssorb01 div:hover, #topSliderJssor .jssorb01 .av:hover {
+  background-color: #d3d3d3;
+}
+
+#topSliderJssor .jssorb01 .av {
+  background-color: #fff;
+}
+
+#topSliderJssor .jssorb01 .dn, #topSliderJssor .jssorb01 .dn:hover {
+  background-color: #555555;
+}
+
+#topSliderJssor .jssora02l, #topSliderJssor .jssora02r {
+  display: block;
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  background: url("/hz/resources/static/img/icons/jssor-slider-icon.png") no-repeat;
+  overflow: hidden;
+}
+
+#topSliderJssor .jssora02l {
+  background-position: -3px -33px;
+  top: 0px;
+  left: 8px;
+  width: 55px;
+  height: 55px;
+}
+
+#topSliderJssor .jssora02r {
+  background-position: -63px -33px;
+  top: 0px;
+  right: 8px;
+  width: 55px;
+  height: 55px;
+}
+
+#topSliderJssor .jssora02l:hover {
+  background-position: -123px -33px;
+}
+
+#topSliderJssor .jssora02r:hover {
+  background-position: -183px -33px;
+}
+
+#topSliderJssor .jssora02l.jssora02ldn {
+  background-position: -3px -33px;
+}
+
+#topSliderJssor .jssora02r.jssora02rdn {
+  background-position: -63px -33px;
+}
+</style>
 
 
 <div id="topSliderJssor" style="height: 300px; ">

@@ -1,3 +1,23 @@
+<style>
+.bottom-menu-wrap {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #FFF;
+  box-shadow: 0 1px 4px #ccc;
+  font-family: "Helvetica","Tahoma","Arial","PingFang SC","Microsoft JhengHei","SimSun","sans-serif";
+  color: #000;
+  overflow: hidden;
+  z-index: 288;
+  font-weight: normal !important;
+}
+
+.bottom-menu-wrap .bottom-menu {
+  width: 960px;
+  margin: 0 auto;
+}
+</style>
+
 
 <div class="bottom-menu-wrap">
   <div class="bottom-menu">

@@ -1,5 +1,167 @@
+<style>
+.top-menu-wrap {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #292f36;
+  box-shadow: 0 1px 4px #ccc;
+  font-family: "Helvetica","Tahoma","Arial","PingFang SC","Microsoft JhengHei","SimSun","sans-serif";
+  color: #fff;
+  overflow: hidden;
+  z-index: 288;
+  font-weight: normal !important;
+}
+
+.top-menu-wrap .top-menu {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.top-menu-wrap .top-menu .logo img {
+  height: 60px;
+}
+
+.top-menu-wrap .top-menu .nav {
+  float: right;
+  margin-left: 100px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.top-menu-wrap .top-menu .nav li {
+  display: inline-block;
+  width: 100px;
+}
+
+.top-menu-wrap .top-menu .nav li a {
+  display: block;
+  color: #E4E4E2;
+}
+
+.top-menu-wrap .top-menu .nav li:hover {
+  background-color: rgba(78, 205, 196, 0.1);
+}
+
+.top-menu-wrap .top-menu .nav li:hover a {
+  color: #fff;
+}
+
+
+
+
+
+
+/*
+ * 动画
+ */
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-4em);
+  }
+}
+
+@-moz-keyframes slideUp {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -moz-transform: translateY(-4em);
+  }
+}
+
+@-o-keyframes slideUp {
+  0% {
+    -o-transform: translateY(0);
+  }
+  100% {
+    -o-transform: translateY(-4em);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4em);
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-4em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes slideDown {
+  0% {
+    -moz-transform: translateY(-4em);
+  }
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes slideDown {
+  0% {
+    -o-transform: translateY(-4em);
+  }
+  100% {
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-4em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated {
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  -o-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.slideUp {
+  -webkit-animation-name: slideUp;
+  -moz-animation-name: slideUp;
+  -o-animation-name: slideUp;
+  animation-name: slideUp;
+}
+
+.animated.slideDown {
+  -webkit-animation-name: slideDown;
+  -moz-animation-name: slideDown;
+  -o-animation-name: slideDown;
+  animation-name: slideDown;
+}
+</style>
+
+
+
 <div class="top-menu-wrap" id="top-menu-wrap">
-    
     <div class="top-menu">
         <ul class="nav">
             <li><a href="index">Home</a></li>
@@ -8,7 +170,5 @@
         </ul>
         <div class="logo"><img src="/hz/resources/static/img/icons/logo.png"/></div>
     </div>
-    
-    
 </div>
 
