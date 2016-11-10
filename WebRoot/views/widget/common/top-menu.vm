@@ -172,3 +172,8 @@
     </div>
 </div>
 
+
+
+
+<script src="/hz/resources/static/libs/headroom.js"></script>
+<script src="/hz/resources/static/libs/jquery.headroom.js"></script>

@@ -31,9 +31,28 @@
   // Data API //
   //////////////
 
-  $('[data-headroom]').each(function() {
-    var $this = $(this);
-    $this.headroom($this.data());
+  //  $('[data-headroom]').each(function() {
+  //    var $this = $(this);
+  //    $this.headroom($this.data());
+  //  });
+  
+  
+  
+  
+  $(".top-menu-wrap").headroom({
+      "tolerance": 5,
+      "offset": 205,
+      "classes": {
+          "initial": "animated",
+          "pinned": "slideDown",
+          "unpinned": "slideUp"
+      }
+//    onPin: function(){
+//        $(".pinned").css('marginTop','75px');
+//    },
+//    onUnpin: function(){
+//        $(".pinned").css('marginTop','30px');
+//    }
   });
 
 }(window.Zepto || window.jQuery));

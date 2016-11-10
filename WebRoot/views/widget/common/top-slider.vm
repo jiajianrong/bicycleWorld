@@ -119,3 +119,23 @@
         <span data-u="arrowleft" class="jssora02l" style="" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora02r" style="" data-autocenter="2"></span>
 </div>
+
+
+
+<script src="/hz/resources/static/libs/jssor.slider.debug.js"></script>
+<script>
+(function($) {
+    var options = {
+      $AutoPlay: true,
+      $Idle: 5000,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$
+      }
+    };
+
+    var jssor_slider1 = new $JssorSlider$('topSliderJssor', options);
+})(jQuery);
+</script>

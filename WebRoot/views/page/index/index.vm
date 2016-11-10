@@ -21,7 +21,6 @@
     
     
 	<div class="section">
-	    
 	    <!-- 正文列表 -->
 	  	<div class="article-wrap">
   		    #foreach($item in $articles)
@@ -40,21 +39,14 @@
 	  	
 	  	<!-- 右侧sidebar -->
 		#parse('/widget/common/right-sidebar.vm')
-        
 	</div>
-	
 	
 </div>
 
+
+
 <!-- 页尾 -->
 #parse('/widget/common/bottom-menu.vm')
-
-
-<script src="/hz/resources/static/libs/jquery-1.11.3.js"></script>
-<script src="/hz/resources/static/libs/jquery.headroom.js"></script>
-<script src="/hz/resources/static/libs/jquery.pin.js"></script>
-<script src="/hz/resources/static/libs/headroom.js"></script>
-<script src="/hz/resources/static/libs/jssor.slider.debug.js"></script>
 <script src="/hz/resources/static/page/index/index.js"></script>
 </body>
 </html>

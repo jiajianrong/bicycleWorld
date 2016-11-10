@@ -27,7 +27,7 @@ public class IndexController extends BaseController {
 		}
 		response.setContentType("text/html;charset=UTF-8"); // 设置响应页面字符编码
 		
-		setArticleList(request, response, ctx);
+		setArticles(request, response, ctx);
 		setSliderAvatars(request, response, ctx);
 		setTags(request, response, ctx);
 		
@@ -41,8 +41,14 @@ public class IndexController extends BaseController {
 	 * @param response
 	 * @param ctx
 	 */
-	private void setArticleList(HttpServletRequest request, HttpServletResponse response, Context ctx) {
-		List list = DBMgr.executeQuery("select * from main_article order by id desc");
+	private void setArticles(HttpServletRequest request, HttpServletResponse response, Context ctx) {
+		String tag = request.getParameter("tag");
+		String sql = "select * from main_article";
+		if (tag!=null)
+			sql += " where tag='" + tag + "'";
+		sql += " order by id desc";
+				
+		List list = DBMgr.executeQuery( sql );
 
 		for (int i = 0; i < list.size(); i++) {
 			TableObject tb = (TableObject) list.get(i);

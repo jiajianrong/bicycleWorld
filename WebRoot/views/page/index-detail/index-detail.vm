@@ -11,7 +11,6 @@
 
 <div class="main-container">
     
-    
     <!--
     <div class="section-avatar">
         <img src="./img/article-avatar-1.jpg">
@@ -20,7 +19,6 @@
     
     
 	<div class="section">
-	  	
 	  	<!-- 正文 -->
 	  	<div class="article-wrap">
   		    <div class="article">
@@ -41,20 +39,11 @@
     
 	</div>
 
-
 </div>
 
 
 <!-- 页尾 -->
 #parse('/widget/common/bottom-menu.vm')
-
-
-
-<script src="/hz/resources/static/libs/jquery-1.11.3.js"></script>
-<script src="/hz/resources/static/libs/jquery.headroom.js"></script>
-<script src="/hz/resources/static/libs/jquery.pin.js"></script>
-<script src="/hz/resources/static/libs/headroom.js"></script>
-<script src="/hz/resources/static/libs/jssor.slider.debug.js"></script>
 <script src="/hz/resources/static/page/index-detail/index-detail.js"></script>
 </body>
 </html>
